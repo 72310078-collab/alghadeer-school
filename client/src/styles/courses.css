@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════
+   COURSES PAGE — موادي الدراسية
+   ═══════════════════════════════════════ */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px)  { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px)  { .courses-grid { grid-template-columns: 1fr; } }
+
+/* ── Card shell ── */
+.course-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.14);
+}
+
+/* ── Coloured header ── */
+.course-card-header {
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+/* Sessions pill — top-left */
+.course-sessions-pill {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border-radius: 20px;
+  padding: 3px 11px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+  white-space: nowrap;
+}
+
+/* Subject initial circle — bottom-right */
+.course-initial {
+  position: absolute;
+  bottom: 0.85rem;
+  right: 0.85rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255,255,255,0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.15rem;
+  font-family: 'Tajawal', sans-serif;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* ── Card body ── */
+.course-card-body {
+  padding: 1rem 1.1rem 1.15rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-title {
+  font-weight: 800;
+  font-size: 0.97rem;
+  color: #111;
+  font-family: 'Tajawal', sans-serif;
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.course-teacher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-family: 'Tajawal', sans-serif;
+  margin-bottom: 0.6rem;
+}
+
+/* Days chips */
+.course-days {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.course-day-chip {
+  border-radius: 6px;
+  padding: 2px 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.course-divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin-bottom: 0.65rem;
+}
+
+/* Times list */
+.course-times {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+.course-time-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  color: #9ca3af;
+  font-family: 'Tajawal', sans-serif;
+  flex-wrap: wrap;
+}
+.course-room {
+  color: #d1d5db;
+  font-size: 0.7rem;
+}
+.course-more {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-family: 'Tajawal', sans-serif;
+}

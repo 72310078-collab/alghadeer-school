@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c98a547.css",
+    "main.js": "/static/js/main.083f73f1.js",
+    "static/media/trip.jpg": "/static/media/trip.3b360cb0d64350d6f90e.jpg",
+    "static/media/playgroundSchool.jpg": "/static/media/playgroundSchool.9a7df31f9ade34a4e5f2.jpg",
+    "static/media/logo.jpg": "/static/media/logo.1cf1036ce9b32732aec1.jpg",
+    "static/media/Parents.jpg": "/static/media/Parents.7e069f5e1ece9f5cd33b.jpg",
+    "static/media/footballSchool.jpg": "/static/media/footballSchool.774a221eb102b6aa42e0.jpg",
+    "static/media/School.jpg": "/static/media/School.c4e60c54d15e46c32143.jpg",
+    "static/media/Entertainment.jpg": "/static/media/Entertainment.8ea03e1ae59e79bb25c0.jpg",
+    "index.html": "/index.html",
+    "main.5c98a547.css.map": "/static/css/main.5c98a547.css.map",
+    "main.083f73f1.js.map": "/static/js/main.083f73f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c98a547.css",
+    "static/js/main.083f73f1.js"
+  ]
+}

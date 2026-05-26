@@ -1,0 +1,236 @@
+/* ═══════════════════════════════════════
+   FOOTER  —  Al-Ghadeer School
+   Brand: #1E7A2A green · #D4A017 gold · #111111 dark
+   ═══════════════════════════════════════ */
+
+.school-footer {
+  background: #111111;
+  color: rgba(255, 255, 255, 0.80);
+  font-family: 'Tajawal', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind logo area */
+.school-footer::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 122, 42, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Gold accent top-border */
+.footer-topbar {
+  height: 4px;
+  background: linear-gradient(90deg, #1E7A2A 0%, #D4A017 50%, #1E7A2A 100%);
+  background-size: 200% 100%;
+  animation: footerBarShift 4s linear infinite;
+}
+
+@keyframes footerBarShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ── Column entrance animation ── */
+.footer-col {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.footer-col:nth-child(1) { transition-delay: 0s; }
+.footer-col:nth-child(2) { transition-delay: 0.12s; }
+.footer-col:nth-child(3) { transition-delay: 0.24s; }
+.footer-col--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Logo ── */
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(212, 160, 23, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-logo:hover {
+  transform: scale(1.06) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.35);
+}
+
+.footer-school-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.footer-school-en {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--clr-gold, #D4A017);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.60);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.9rem;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #D4A017;
+}
+.footer-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #D4A017;
+  animation: footerPulse 2s ease-in-out infinite;
+}
+@keyframes footerPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ── Column headings ── */
+.footer-col-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.1rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, #D4A017, #1E7A2A);
+  border-radius: 2px;
+}
+
+/* ── Quick links ── */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0.3rem 0;
+}
+.footer-link-item:hover {
+  color: #fff;
+  transform: translateX(-4px);
+}
+
+/* ── Contact list ── */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+.footer-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(30, 122, 42, 0.2);
+  border: 1px solid rgba(30, 122, 42, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4caf7d;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.footer-contact-item:hover .footer-contact-icon {
+  background: rgba(30, 122, 42, 0.4);
+  transform: scale(1.08);
+}
+
+/* ── Stats strip ── */
+.footer-stat-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.footer-stat-box:hover {
+  background: rgba(30, 122, 42, 0.15);
+  border-color: rgba(30, 122, 42, 0.4);
+}
+.footer-stat-value {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #D4A017;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.footer-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.50);
+  font-weight: 600;
+}
+
+/* ── Divider ── */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+  margin: 0;
+}
+
+/* ── Bottom bar ── */
+.footer-copy,
+.footer-powered {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.40);
+}
+.footer-copy strong,
+.footer-powered span { color: #D4A017; }
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .footer-link-item:hover { transform: none; }
+}

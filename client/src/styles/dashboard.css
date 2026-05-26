@@ -1,0 +1,248 @@
+.dashboard-layout {
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+/* ── Main content area: sidebar pushes it on desktop only ── */
+.dash-main {
+  padding-top: 64px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-right 0.25s ease;
+}
+.dash-main.sidebar-open {
+  margin-right: 240px;
+}
+@media (max-width: 767px) {
+  /* On mobile, sidebar overlays — never push content */
+  .dash-main.sidebar-open { margin-right: 0; }
+}
+
+.dash-main-inner {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 767px) { .dash-main-inner { padding: 1.25rem 1rem; } }
+@media (max-width: 480px) { .dash-main-inner { padding: 1rem 0.75rem; } }
+
+/* ── Mobile overlay backdrop ── */
+.dash-sidebar-overlay {
+  display: none;
+}
+@media (max-width: 767px) {
+  .dash-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 98;
+    cursor: pointer;
+  }
+}
+
+/* ── Responsive info card grid (student dashboard) ── */
+.dash-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 768px) { .dash-info-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .dash-info-grid { grid-template-columns: 1fr; } }
+
+/* ── Horizontal-scroll wrapper for tables on mobile ── */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-main {
+  padding-top: 64px;
+  transition: margin-right 0.25s ease;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--clr-dark);
+  font-family: 'Tajawal', sans-serif;
+  margin: 0;
+}
+@media (max-width: 480px) { .page-title { font-size: 1.3rem; } }
+
+.page-breadcrumb {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 576px) { .stats-grid { grid-template-columns: 1fr; } }
+
+/* Content grid */
+.content-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) { .content-grid-2 { grid-template-columns: 1fr; } }
+
+.content-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .content-grid-3 { grid-template-columns: 1fr; } }
+
+/* Announcement card */
+.announcement-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  align-items: flex-start;
+}
+.announcement-item:last-child { border-bottom: none; }
+.announcement-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--clr-green);
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+}
+.announcement-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--clr-dark);
+  margin-bottom: 0.2rem;
+  font-family: 'Tajawal', sans-serif;
+}
+.announcement-meta {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Event item */
+.event-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+.event-item:last-child { border-bottom: none; }
+.event-date-box {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--clr-green), var(--clr-green-light));
+  border-radius: var(--radius-sm);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #fff; flex-shrink: 0;
+}
+.event-date-day { font-size: 1.1rem; font-weight: 900; line-height: 1; }
+.event-date-mon { font-size: 0.65rem; font-weight: 600; opacity: 0.85; }
+
+/* Modals */
+.school-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  animation: fadeInUp 0.2s ease;
+}
+.school-modal {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.school-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+.school-modal-title {
+  font-weight: 800; font-size: 1.1rem;
+  color: var(--clr-dark); font-family: 'Tajawal', sans-serif;
+}
+.school-modal-close {
+  background: #f3f4f6; border: none; border-radius: 8px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--clr-dark);
+  transition: background 0.15s;
+}
+.school-modal-close:hover { background: #e5e7eb; }
+.school-modal-body { padding: 1.5rem; }
+.school-modal-footer {
+  display: flex; gap: 0.75rem; justify-content: flex-end;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* ── Hero banner responsive padding ── */
+@media (max-width: 576px) {
+  .dash-hero-pad { padding: 1.4rem 1.25rem !important; }
+  .dash-hero-pad h2 { font-size: 1.3rem !important; }
+}
+
+/* Welcome banner */
+.welcome-banner {
+  background: linear-gradient(135deg, var(--clr-green-dark) 0%, var(--clr-green) 100%);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.5rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(212,160,23,0.15);
+}
+.welcome-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: 20%;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+}
