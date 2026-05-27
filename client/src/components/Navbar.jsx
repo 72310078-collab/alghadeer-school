@@ -14,9 +14,11 @@ import logo from '../logo.jpg';
 const roleLabel = { admin: 'المدير', teacher: 'معلم', student: 'طالب' };
 
 const DASHBOARD_PATHS = [
-  '/dashboard', '/teacher-home', '/users', '/teachers', '/classes',
+  '/dashboard', '/teacher-home', '/teachers', '/classes',
   '/lectures', '/exams', '/seats', '/grades', '/my-grades', '/my-classes',
   '/announcements', '/events', '/profile', '/my-courses',
+  '/students', '/attendance', '/schedule', '/my-seats',
+  '/materials', '/subjects',
 ];
 
 const publicNavLinks = [

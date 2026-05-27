@@ -41,6 +41,14 @@ app.use('/api/materials',  require('./routes/materials'));
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Serve React frontend
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.get('*', (req, res) => {
+  if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  }
+});
+
 app.get('/api/health', (_, res) => res.json({ status: 'OK', app: 'Al-Ghadeer School API' }));
 
 // Global JSON error handler — Express 5 auto-catches sync errors and needs this

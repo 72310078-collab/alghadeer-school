@@ -4,6 +4,7 @@ const ctrl = require('../controllers/gradeController');
 
 router.use(authenticate);
 router.get('/',                   authorize('admin'), ctrl.getAll);
+router.get('/subjects',           authorize('admin'), ctrl.getAllSubjects);
 router.get('/student/:studentId', ctrl.getStudentGrades);
 router.get('/class/:classId', authorize('admin', 'teacher'), ctrl.getClassGrades);
 router.post('/bulk', authorize('admin', 'teacher'), ctrl.bulkSave);

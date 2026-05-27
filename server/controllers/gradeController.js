@@ -35,8 +35,18 @@ db.query(`SHOW INDEX FROM grades WHERE Key_name = 'uq_grade'`, (err, rows) => {
   );
 });
 
+exports.getAllSubjects = (req, res) => {
+  db.query(
+    `SELECT DISTINCT id, name FROM subjects ORDER BY name`,
+    (err, data) => {
+      if (err) return res.status(500).json({ message: 'خطأ في الخادم', error: err.message });
+      res.json(data);
+    }
+  );
+};
+
 exports.getAll = (req, res) => {
-  const { class_id, semester, academic_year } = req.query;
+  const { class_id, subject_id, semester, academic_year } = req.query;
 
   let q = `
     SELECT g.*, u.name AS student_name, s.name AS subject_name,
@@ -50,6 +60,7 @@ exports.getAll = (req, res) => {
   const params = [];
 
   if (class_id)      { q += ' AND c.id = ?';           params.push(class_id); }
+  if (subject_id)    { q += ' AND g.subject_id = ?';   params.push(subject_id); }
   if (semester)      { q += ' AND g.semester = ?';      params.push(semester); }
   if (academic_year) { q += ' AND g.academic_year = ?'; params.push(academic_year); }
   q += ' ORDER BY c.name, u.name, s.name';

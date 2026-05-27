@@ -41,6 +41,8 @@ export default function Grades() {
   const [students,        setStudents]        = useState([]);
   const [selectedStudent, setSelectedStudent] = useState('');
   const [filterClass,     setFilterClass]     = useState('');
+  const [filterSubject,   setFilterSubject]   = useState('');
+  const [filterSubjects,  setFilterSubjects]  = useState([]);
   const [semester,        setSemester]        = useState('');
   const [filterYear,      setFilterYear]      = useState('2025-2026');
   const [loading,         setLoading]         = useState(false);
@@ -62,6 +64,7 @@ export default function Grades() {
     if (user?.role === 'admin') {
       // Load classes for filter dropdown + all grades immediately
       api.get('/classes').then(r => setClasses(r.data || [])).catch(() => {});
+      api.get('/grades/subjects').then(r => setFilterSubjects(r.data || [])).catch(err => console.error('subjects error:', err));
       loadAllGrades({});
     } else if (user?.role === 'teacher') {
       api.get('/classes', { params: { teacher_id: user.id } })
@@ -79,6 +82,7 @@ export default function Grades() {
     }
     if (user?.role === 'student') loadGrades(user.id);
   }, [user]);
+
 
   /* ── Load class detail when teacher selects a class in ENTRY tab ── */
   useEffect(() => {
@@ -140,6 +144,7 @@ export default function Grades() {
     if (user?.role === 'admin') {
       loadAllGrades({
         class_id:      filterClass   || undefined,
+        subject_id:    filterSubject || undefined,
         semester:      semester      || undefined,
         academic_year: filterYear    || undefined,
       });
@@ -211,6 +216,13 @@ export default function Grades() {
                   </select>
                 </div>
                 <div className="col-md-3">
+                  <label className="school-label">المادة</label>
+                  <select className="school-input" value={filterSubject} onChange={e => setFilterSubject(e.target.value)}>
+                    <option value="">جميع المواد</option>
+                    {filterSubjects.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                  </select>
+                </div>
+                <div className="col-md-2">
                   <label className="school-label">الفصل الدراسي</label>
                   <select className="school-input" value={semester} onChange={e => setSemester(e.target.value)}>
                     <option value="">جميع الفصول</option>
@@ -219,7 +231,7 @@ export default function Grades() {
                     <option value="final">النهائي</option>
                   </select>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-2">
                   <label className="school-label">العام الدراسي</label>
                   <select className="school-input" value={filterYear} onChange={e => setFilterYear(e.target.value)}>
                     <option value="2025-2026">2025-2026</option>
