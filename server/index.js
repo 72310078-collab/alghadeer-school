@@ -8,12 +8,7 @@ const app = express();
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (
-      !origin ||
-      origin.startsWith('http://localhost') ||
-      origin.endsWith('.vercel.app') ||
-      origin === process.env.FRONTEND_URL
-    ) {
+    if (!origin || origin.startsWith('http://localhost')) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -40,14 +35,6 @@ app.use('/api/materials',  require('./routes/materials'));
 
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Serve React frontend
-app.use(express.static(path.join(__dirname, '../client/build')));
-app.get('*', (req, res) => {
-  if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  }
-});
 
 app.get('/api/health', (_, res) => res.json({ status: 'OK', app: 'Al-Ghadeer School API' }));
 
