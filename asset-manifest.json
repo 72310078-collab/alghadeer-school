@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/alghadeer-school/static/css/main.36f170b0.css",
+    "main.js": "/alghadeer-school/static/js/main.973b1438.js",
+    "static/media/trip.jpg": "/alghadeer-school/static/media/trip.3b360cb0d64350d6f90e.jpg",
+    "static/media/playgroundSchool.jpg": "/alghadeer-school/static/media/playgroundSchool.9a7df31f9ade34a4e5f2.jpg",
+    "static/media/logo.jpg": "/alghadeer-school/static/media/logo.1cf1036ce9b32732aec1.jpg",
+    "static/media/Parents.jpg": "/alghadeer-school/static/media/Parents.7e069f5e1ece9f5cd33b.jpg",
+    "static/media/footballSchool.jpg": "/alghadeer-school/static/media/footballSchool.774a221eb102b6aa42e0.jpg",
+    "static/media/School.jpg": "/alghadeer-school/static/media/School.c4e60c54d15e46c32143.jpg",
+    "static/media/Entertainment.jpg": "/alghadeer-school/static/media/Entertainment.8ea03e1ae59e79bb25c0.jpg",
+    "index.html": "/alghadeer-school/index.html",
+    "main.36f170b0.css.map": "/alghadeer-school/static/css/main.36f170b0.css.map",
+    "main.973b1438.js.map": "/alghadeer-school/static/js/main.973b1438.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36f170b0.css",
+    "static/js/main.973b1438.js"
+  ]
+}
