@@ -27,7 +27,7 @@ students in the classroom based on health accommodations and academic level.
 |-------|-----------|
 | Front-end | React.js (Create React App) |
 | Back-end | Node.js + Express |
-| Database | MySQL / MariaDB |
+| Database | MySQL  |
 | HTTP client | Axios |
 | Styling | Bootstrap + Material UI |
 | Auth | Role-based access control (role passed via request headers) |
@@ -59,7 +59,7 @@ Alghadeer/
 
 ### Prerequisites
 - Node.js (v18 or later)
-- XAMPP / MySQL / MariaDB
+- XAMPP / MySQL
 
 ### 1. Database setup
 1. Start MySQL (e.g. via XAMPP).
